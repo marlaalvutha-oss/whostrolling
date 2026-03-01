@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book – Who's Trolling the White House?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --navy: #0A2463; --red: #C41E3A; --gold: #FFD700; --white: #FFFFFF; --dark-navy: #061540; }
+        body { background-color: var(--white); font-family: 'Nunito', sans-serif; color: var(--navy); overflow-x: hidden; }
+        .stars-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, #0A2463 0%, #1a3a7a 40%, #e8f4fd 100%); z-index: -1; }
+        .page-header { text-align: center; padding: 2.5rem 2rem 1rem; }
+        .page-header img { max-width: 380px; width: 80%; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3)); }
+        .page-title { font-family: 'Bangers', cursive; font-size: 2.2rem; color: var(--gold); letter-spacing: 3px; margin-top: 1rem; text-shadow: 2px 2px 0 rgba(0,0,0,0.3); }
+        .gold-line { width: 100%; max-width: 700px; margin: 1rem auto; height: 2px; background: var(--gold); opacity: 0.6; }
+        .content-card { background: rgba(255,255,255,0.97); border-radius: 16px; border: 3px solid var(--gold); max-width: 760px; width: 90%; margin: 0 auto 2rem; padding: 2rem 2.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+        .book-layout { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+        .book-cover { flex-shrink: 0; width: 200px; }
+        .book-cover img { width: 100%; border-radius: 8px; box-shadow: 4px 4px 16px rgba(0,0,0,0.25); border: 3px solid var(--gold); }
+        .book-info { flex: 1; min-width: 220px; }
+        .about-heading { font-family: 'Bangers', cursive; font-size: 1.6rem; color: var(--navy); letter-spacing: 2px; margin-bottom: 0.8rem; }
+        .book-info p { font-size: 1rem; line-height: 1.75; color: #333; margin-bottom: 0.8rem; }
+        .genre-tag { display: inline-block; background: var(--navy); color: var(--gold); font-family: 'Bangers', cursive; font-size: 0.95rem; letter-spacing: 1px; padding: 0.3rem 1rem; border-radius: 20px; margin-top: 0.5rem; }
+        .tagline-note { color: #C41E3A; font-style: italic; font-size: 1rem; margin-top: 1.5rem; font-weight: 700; text-align: center; }
+        .buy-section { background: rgba(255,255,255,0.97); border-radius: 16px; border: 3px solid var(--gold); max-width: 760px; width: 90%; margin: 0 auto 2rem; padding: 2rem 2.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.18); text-align: center; }
+        .buy-heading { font-family: 'Bangers', cursive; font-size: 2rem; color: var(--navy); letter-spacing: 3px; margin-bottom: 0.5rem; }
+        .available-label { font-family: 'Bangers', cursive; font-size: 1rem; color: var(--red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+        .buy-btn { display: inline-block; padding: 0.85rem 2.5rem; background: var(--red); color: var(--white); border: 3px solid #8B0000; border-radius: 8px; text-decoration: none; font-family: 'Bangers', cursive; font-size: 1.3rem; letter-spacing: 2px; transition: transform 0.15s, box-shadow 0.15s; margin: 0.4rem; min-width: 220px; }
+        .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .buy-btn.etsy { background: var(--navy); border-color: var(--dark-navy); }
+        .coming-soon-label { font-family: 'Bangers', cursive; font-size: 1rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin: 1.2rem 0 0.6rem; }
+        .retailer-grid { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 0.5rem; }
+        .retailer-btn { display: inline-block; padding: 0.5rem 1.2rem; background: #e0e0e0; color: #888; border: 2px solid #ccc; border-radius: 6px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: default; }
+        .retailer-btn small { display: block; font-size: 0.75rem; font-weight: 600; color: #aaa; }
+        .back-btn { display: block; text-align: center; margin: 0 auto 1.5rem; }
+        .back-link { display: inline-block; padding: 0.7rem 2rem; background: transparent; color: var(--gold); border: 2px solid var(--gold); border-radius: 8px; text-decoration: none; font-family: 'Bangers', cursive; font-size: 1.1rem; letter-spacing: 2px; transition: background 0.15s; }
+        .back-link:hover { background: rgba(255,215,0,0.15); }
+        .footer-box { background: rgba(255,255,255,0.97); border-radius: 16px; border: 3px solid var(--gold); max-width: 760px; width: 90%; margin: 0 auto 2rem; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.18); text-align: center; }
+        .footer-box p { font-size: 0.85rem; color: #666; }
+        .publisher-logo { width: 70px; margin: 0.6rem auto; display: block; }
+        .god-bless-text { font-family: 'Bangers', cursive; font-size: 1rem; color: var(--navy); letter-spacing: 2px; margin-top: 0.3rem; }
+        @media (max-width: 560px) { .book-layout { flex-direction: column; align-items: center; } .book-cover { width: 160px; } }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    <div class="page-header">
+        <img src="WTTitle.png" alt="Who's Trolling the White House?">
+        <p class="page-title">About the Book</p>
+    </div>
+    <div class="gold-line"></div>
+    <div class="content-card">
+        <div class="book-layout">
+            <div class="book-cover">
+                <img src="WTCover.png" alt="Who's Trolling the White House? Cover">
+            </div>
+            <div class="book-info">
+                <h2 class="about-heading">About the Book</h2>
+                <p>There's a TROLL in the White House—or so the news says!</p>
+                <p>When Vice President JD Vance spots an alarming headline warning about a troll causing trouble at 1600 Pennsylvania Avenue, he knows he has to investigate. As a proud Marine veteran, JD is ready to protect the White House and get to the bottom of this mystery.</p>
+                <p>Join JD on his investigation as he searches for clues on the White House grounds, reads intelligence reports, meets a very busy Marine guard, and finally discovers the truth behind the glowing Oval Office door. But the troll he finds isn't what anyone expected!</p>
+                <p>With charming illustrations and a clever twist ending, <em>Who's Trolling the White House?</em> teaches young readers about the importance of investigating for themselves, thinking critically about what they hear, and discovering that the truth is often more interesting than the headline.</p>
+                <span class="genre-tag">Picture Book Mystery • Ages 6–8</span>
+            </div>
+        </div>
+        <p class="tagline-note">Perfect for patriotic families, young investigators, and anyone who loves a good mystery with a surprising reveal!</p>
+    </div>
+    <div class="buy-section">
+        <h2 class="buy-heading">Get Your Copy</h2>
+        <p class="available-label">★ Available Now ★</p>
+        <div>
+            <a href="#" class="buy-btn">Buy on Amazon</a>
+            <a href="#" class="buy-btn etsy">DBK Etsy Shop<br><small style="font-size:0.75rem;">Signed Copies</small></a>
+        </div>
+        <p class="coming-soon-label">— Coming Soon —</p>
+        <div class="retailer-grid">
+            <div class="retailer-btn">Barnes &amp; Noble<small>eBook Format</small></div>
+            <div class="retailer-btn">DraftDigital<small>eBook Format</small></div>
+            <div class="retailer-btn">Kobo<small>eBook Format</small></div>
+            <div class="retailer-btn">Google Play<small>eBook Format</small></div>
+            <div class="retailer-btn">Gumroad<small>eBook Format</small></div>
+        </div>
+    </div>
+            <div class="footer-box">
+            <a href="index.html" class="back-link-footer">← Back to Home</a>
+            <p>&copy; 2026 Drathir Barra Ka'lum Publishing</p>
+            <img src="Sigil.png" alt="DBK Publishing Logo" class="publisher-logo" onerror="this.style.display='none'">
+            <p class="god-bless-text">God Bless America 🇺🇸</p>
+        </div>
+</body>
+</html>
